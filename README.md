@@ -49,3 +49,40 @@
 - 通过http://yourhost/index.php/admin/login/index.html 访问后台管理端。
 
   通过http://yourhost/index.php/front/seckill/index.html 访问客户端。
+  
+# 三、目录结构
+
+- seckill文件——thinkphp框架搭建的站点
+
+- go文件——RabbitMQ相关文件
+
+~~~
+seckill-thinkphp框架项目目录结构
+├─application           应用目录
+│  ├─common             公共模块目录
+│  ├─front        		前台模块目录（主要）
+│  │  ├─controller      控制器目录
+│  │  ├─model           模型目录
+│  │  ├─view            视图目录
+│  │  └─ ...            更多类库目录
+│  ├─admin        		后台管理模块目录（主要）
+│  │  ├─controller      控制器目录
+│  │  ├─model           模型目录
+│  │  ├─view            视图目录
+│  │  └─ ...            更多类库目录
+│  │
+│  ├─command.php        命令行工具配置文件
+│  ├─common.php         公共函数文件
+│  ├─config.php         公共配置文件
+│  ├─route.php          路由配置文件
+│  ├─tags.php           应用行为扩展定义文件
+│  └─database.php       数据库配置文件-部署时要修改
+│
+├─public                WEB目录（对外访问目录）
+│  ├─js                 公共js文件（自添加）
+│  ├─temp               部分参考Xadmin的引用文件（自添加）
+│  ├─index.php          入口文件
+│  ├─router.php         快速测试文件
+│  └─.htaccess          用于apache的重写
+│……
+~~~
