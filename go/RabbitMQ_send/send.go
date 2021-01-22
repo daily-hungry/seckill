@@ -22,7 +22,7 @@ type Message struct { //json重命名
 }
 
 func main() {
-	//连接信息修改为自己的服务器账户名和密码
+	//连接信息修改为自己的RabbitMQ账户名和密码
 	conn, err := amqp.Dial("amqp://账户名:密码@localhost:5672/")
 	failOnError(err, "Failed to connect to RabbitMQ")
 	defer conn.Close()
