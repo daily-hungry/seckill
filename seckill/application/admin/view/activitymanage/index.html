@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  {include file="public/head_title" /}
+</head>
+
+<body>
+  <!-- 顶部开始 -->
+  <div class="container">
+    {include file="public/head" /}
+  </div>
+  <!-- 顶部结束 -->
+  <!-- 中部开始 -->
+  <div class="wrapper">
+    <!-- 左侧菜单开始 -->
+    {include file="public/menu" /}
+    <!-- 左侧菜单结束 -->
+    <div class="page-content">
+      <div class="content">
+        <fieldset class="layui-elem-field layui-field-title site-title">
+          <legend><a name="default">活动信息管理</a></legend>
+        </fieldset>
+
+        <div style="text-align:right">
+          <span class="btn btn-sm btn-primary pull-right" onclick="javascript:window.location.href = 'info'">
+            添加
+            <i class="icon-reply icon-only"></i>
+          </span>
+        </div>
+
+        <table class="layui-table">
+          <thead>
+            <tr>
+              <th> </th>
+              <th>活动id</th>
+              <th>活动名称</th>
+              <th>活动时间</th>
+              <th>活动地点</th>
+              <th>活动总名额</th>
+              <th>剩余可报名额</th>
+              <th>备注信息</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            {volist name="lists" id="vo"}
+            <tr>
+              <!--选择框-->
+              <td class="center">
+                <label class="pos-rel">
+                  <input type="checkbox" class="ace" />
+                  <span class="lbl"></span>
+                </label>
+              </td>
+              <td>{$vo.id}</td>
+              <td>{$vo.name}</td>
+              <td>{$vo.time}</td>
+              <td>{$vo.place}</td>
+              <td>{$vo.sum}</td>
+              <td>{$vo.remain}</td>
+              <td>{$vo.info}</td>
+              <td>
+                <a href="url">修改</a>
+                <a href="url">删除</a>
+              </td>
+            </tr>
+            {/volist}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- 中部结束 -->
+  <!-- 背景切换开始 -->
+  {include file="public/bottom" /}
+  <!-- 背景切换结束 -->
+</body>
+
+</html>

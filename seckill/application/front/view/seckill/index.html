@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>活动报名</title>
+    <script language="javascript" src="/js/seckill.js"></script>
+    <script type="text/javascript">
+        // 重新生成验证码
+        function reloadImg(imgid) {
+            document.getElementById(imgid).src = "{:captcha_src()}?rand='+Math.random()";
+        }
+    </script>
+
+    <style>
+        div {
+            margin-top: 1%;
+            margin-bottom: 1%;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="margin:auto">
+        <h1>活动报名</h1>
+        <form action="doseckill" method="post">
+            <div>
+                <table>
+                    <tr>
+                        <td>用户名：</td>
+                        <td>
+                            <input id="name" name="username" type="text" placeholder="请输入用户名"
+                                onblur="check_name_legality('name','tip_name')" onkeyup="tip_clear('tip_name')"
+                                required />
+                            <text id="tip_name"></text>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>密码：</td>
+                        <td>
+                            <input id="pwd" name="password" type="password" placeholder="请输入密码"
+                                onblur="check_pwd_legality('pwd','tip_pwd')" onkeyup="tip_clear('tip_pwd')" required />
+                            <text id="tip_pwd"></text>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div>
+                请选择活动场次：
+                <select name="activity" onchange="giveinfo('info',document.all['activity'].value)">
+                    <tbody>
+                        {volist name="lists" id="vo"}
+                        <option value={$vo.id}>{$vo.name}</option>
+                        {/volist}
+                    </tbody>
+                </select>
+                <!-- 待补充ajax显示 -->
+                <text id="info"></text>
+            </div>
+    </div>
+    <label class="login-title" for="verifycode">验证码：</label>
+    <input type="text" name="verifycode" lay-verify="required" placeholder="请输入图中验证码" autocomplete="off"
+        class="layui-input">
+    <div>
+        <img src="{:captcha_src()}" id="img" onclick="reloadImg('img')">
+    </div>
+    <button type="submit">提交表单</button>
+    </form>
+    </div>
+</body>
+
+</html>
+
+
+<!--
+    required 属性-布尔属性。如果设置，则规定在提交表单之前必须填写输入字段。光标放上去或提交表单发现为空都会提示“请填写此字段。”
+    onblur 事件会在对象失去焦点时发生。
+    onkeyup 事件会在键盘按键被松开时发生。
+-->
