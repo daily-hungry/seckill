@@ -15,14 +15,11 @@ return [
     // 服务器地址
     'hostname'        => '127.0.0.1',//一定要用本地不要用远程的
     // 数据库名
-    //'database'        => 'dorm_manage',
     'database'        => 'seckill',
     // 用户名
-    //'username'        => 'dorm_manage',
-    'username'        => 'seckill',
+    'username'        => '用户名',
     // 密码
-    //'password'        => 'BfcGwWBXJSns3n83',
-    'password'        => 's8bejD2NAa',
+    'password'        => '密码',
     // 端口
     'hostport'        => '',
     // 连接dsn
